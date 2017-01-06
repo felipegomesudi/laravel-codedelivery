@@ -28,7 +28,6 @@ class ProductsController extends Controller
     public function index()
     {
         $products = $this->repository->paginate();
-
         return view('admin.products.index', compact('products'));
     }
 
