@@ -18,14 +18,14 @@ class UserTableSeeder extends Seeder
             'email' => 'felipegomesudi@gmail.com',
             'password' => bcrypt('assumpcao'),
             'remember_token' => str_random(10),
-        ]);
+        ])->client()->save(factory(Client::class)->make());
         factory(User::class)->create([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin'),
             'role' => 'admin',
             'remember_token' => str_random(10),
-        ]);
+        ])->client()->save(factory(Client::class)->make());
         factory(User::class, 10)->create()->each(function($u){
             $u->client()->save(factory(Client::class)->make());
         });
